@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario - Listado</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <header>
+        <h1>Concesionario de Coches</h1>
+        <nav>
+            <a href="coche.html">Listado</a>
+            <a href="cocheAlta.html">Nueva Reserva</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="filtros">
+            <h2>Filtros de Búsqueda</h2>
+            <div class="filtro-group">
+                <div>
+                    <label for="marcaModelo">Marca/Modelo:</label>
+                    <input type="text" id="marcaModelo" placeholder="Buscar marca o modelo">
+                </div>
+                
+                <div class="rango-filtros">
+                    <div>
+                        <label for="anoDesde">Año desde:</label>
+                        <select id="anoDesde"></select>
+                    </div>
+                    <div>
+                        <label for="anoHasta">Año hasta:</label>
+                        <select id="anoHasta"></select>
+                    </div>
+                </div>
+
+                <div class="rango-filtros">
+                    <div>
+                        <label for="kmDesde">KM desde:</label>
+                        <input type="number" id="kmDesde" min="0" placeholder="0">
+                    </div>
+                    <div>
+                        <label for="kmHasta">KM hasta:</label>
+                        <input type="number" id="kmHasta" min="0" placeholder="100000">
+                    </div>
+                </div>
+
+                <div class="botones-filtros">
+                    <button id="btnFiltrar">Aplicar Filtros</button>
+                    <button id="btnEliminarFiltros">Eliminar Filtros</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="ordenacion">
+            <h2>Ordenar por:</h2>
+            <div class="botones-ordenacion">
+                <button id="btnRelevancia">Relevancia</button>
+                <button id="btnPrecioAsc">Precio (Ascendente)</button>
+                <button id="btnPrecioDesc">Precio (Descendente)</button>
+            </div>
+        </section>
+
+        <section id="listado-coches">
+            <h2>Coches Disponibles</h2>
+            <div id="contenedor-coches">
+                <!-- Los coches se cargarán aquí dinámicamente -->
+            </div>
+        </section>
+
+        <section id="reservas">
+            <h2>Reservas Activas</h2>
+            <div id="contenedor-reservas">
+                <!-- Las reservas se cargarán aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Examen JavaScript - Concesionario de Coches</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="bbdd.js"></script>
+    <script src="coche.js" defer></script>
+</body>
+</html>
