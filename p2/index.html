@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario - Examen JS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="datos.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Concesionario de Vehículos</h1>
+    </header>
+
+    <main class="container">
+        <!-- Sección de filtros y ordenación -->
+        <aside class="filtros-panel">
+            <h2>Filtros</h2>
+
+            <div class="filtro-grupo">
+                <label>Ordenar por:</label>
+                <div class="botones-ordenacion">
+                    <button id="btnRelevancia" class="btn-orden active">Relevancia</button>
+                    <button id="btnPrecioAsc" class="btn-orden">Precio ↑</button>
+                    <button id="btnPrecioDesc" class="btn-orden">Precio ↓</button>
+                </div>
+            </div>
+
+            <div class="filtro-grupo">
+                <label for="buscarMarcaModelo">Buscar marca/modelo:</label>
+                <input type="text" id="buscarMarcaModelo" placeholder="Escribe marca o modelo...">
+            </div>
+
+            <div class="filtro-grupo">
+                <label>Año:</label>
+                <div class="rango-filtro">
+                    <select id="añoDesde">
+                        <option value="">Desde</option>
+                    </select>
+                    <span>-</span>
+                    <select id="añoHasta">
+                        <option value="">Hasta</option>
+                    </select>
+                </div>
+                <span class="error-mensaje" id="errorAño"></span>
+            </div>
+
+            <div class="filtro-grupo">
+                <label>Kilómetros:</label>
+                <div class="rango-filtro">
+                    <input type="number" id="kmDesde" placeholder="Desde" min="0">
+                    <span>-</span>
+                    <input type="number" id="kmHasta" placeholder="Hasta" min="0">
+                </div>
+                <span class="error-mensaje" id="errorKm"></span>
+            </div>
+
+            <button id="btnAplicarFiltros" class="btn-aplicar">Aplicar Filtros</button>
+            <button id="btnEliminarFiltros" class="btn-eliminar">Eliminar Filtros</button>
+        </aside>
+
+        <!-- Sección de listado de vehículos -->
+        <section class="listado-vehiculos">
+            <h2>Vehículos Disponibles</h2>
+            <div id="contenedorVehiculos" class="grid-vehiculos">
+                <!-- Aquí se cargarán los vehículos dinámicamente -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Sección de reserva (oculta por defecto) -->
+    <section id="seccionReserva" class="seccion-reserva oculto">
+        <div class="modal-overlay">
+            <div class="modal-contenido">
+                <h2>Reservar Vehículo</h2>
+                <div id="infoVehiculoReserva" class="info-vehiculo-reserva">
+                    <!-- Aquí se cargará la info del vehículo seleccionado -->
+                </div>
+
+                <form id="formularioReserva">
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre completo: *</label>
+                        <input type="text" id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,50}"
+                            title="Nombre debe tener entre 3 y 50 caracteres, solo letras">
+                        <span class="error-mensaje" id="errorNombre"></span>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="email">Email: *</label>
+                        <input type="email" id="email" name="email" required
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Introduce un email válido">
+                        <span class="error-mensaje" id="errorEmail"></span>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="telefono">Teléfono: *</label>
+                        <input type="tel" id="telefono" name="telefono" required pattern="[0-9]{9}"
+                            title="Teléfono debe tener 9 dígitos">
+                        <span class="error-mensaje" id="errorTelefono"></span>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="fechaReserva">Fecha de reserva: *</label>
+                        <input type="date" id="fechaReserva" name="fechaReserva" required>
+                        <span class="error-mensaje" id="errorFecha"></span>
+                    </div>
+
+                    <div id="mensajeGeneral" class="mensaje-general"></div>
+
+                    <div class="botones-formulario">
+                        <button type="submit" class="btn-enviar">Confirmar Reserva</button>
+                        <button type="button" id="btnCancelarReserva" class="btn-cancelar">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
