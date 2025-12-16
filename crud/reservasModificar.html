@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Reserva - CRUD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Modificar Reserva</h1>
+    </header>
+
+    <main class="container-modificar">
+        <a href="reservasListar.html" class="btn-volver">← Volver al Listado</a>
+
+        <div class="formulario-modificar">
+            <h2>Editar Reserva</h2>
+
+            <!-- Información de la reserva original -->
+            <div class="info-reserva-modificar" id="infoReservaOriginal">
+                <p><strong>ID Reserva:</strong> <span id="idReservaInfo">-</span></p>
+                <p><strong>Fecha de creación:</strong> <span id="fechaCreacionInfo">-</span></p>
+            </div>
+
+            <form id="formularioModificarReserva">
+                <!-- Sección Vehículo -->
+                <div class="seccion-form">
+                    <h3>Datos del Vehículo</h3>
+                    
+                    <div class="form-grupo">
+                        <label for="vehiculoId">Seleccionar Vehículo: *</label>
+                        <select id="vehiculoId" name="vehiculoId" required>
+                            <option value="">-- Seleccione un vehículo --</option>
+                        </select>
+                        <span class="error-mensaje" id="errorVehiculo"></span>
+                    </div>
+                </div>
+
+                <!-- Sección Cliente -->
+                <div class="seccion-form">
+                    <h3>Datos del Cliente</h3>
+                    
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre completo: *</label>
+                        <input type="text" id="nombre" name="nombre" required 
+                               pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,50}"
+                               title="Nombre debe tener entre 3 y 50 caracteres, solo letras">
+                        <span class="error-mensaje" id="errorNombre"></span>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="email">Email: *</label>
+                        <input type="email" id="email" name="email" required
+                               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                               title="Introduce un email válido">
+                        <span class="error-mensaje" id="errorEmail"></span>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="telefono">Teléfono: *</label>
+                        <input type="tel" id="telefono" name="telefono" required
+                               pattern="[0-9]{9}"
+                               title="Teléfono debe tener 9 dígitos">
+                        <span class="error-mensaje" id="errorTelefono"></span>
+                    </div>
+                </div>
+
+                <!-- Sección Reserva -->
+                <div class="seccion-form">
+                    <h3>Fecha de Reserva</h3>
+                    
+                    <div class="form-grupo">
+                        <label for="fechaReserva">Fecha de reserva: *</label>
+                        <input type="date" id="fechaReserva" name="fechaReserva" required>
+                        <span class="error-mensaje" id="errorFecha"></span>
+                    </div>
+                </div>
+
+                <!-- Mensaje General -->
+                <div id="mensajeGeneral" class="mensaje-general"></div>
+
+                <!-- Botones -->
+                <div class="botones-formulario">
+                    <button type="submit" class="btn-enviar">Actualizar Reserva</button>
+                    <a href="reservasListar.html" class="btn-cancelar">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="datos.js"></script>
+    <script src="reservasModificar.js"></script>
+</body>
+</html>
