@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Coches</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="js/bbdd.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Concesionario de Coches</h1>
+    </header>
+
+    <!-- Filtros -->
+    <section id="filtros">
+        <input type="text" id="busquedaMarcaModelo" placeholder="Buscar marca o modelo">
+        <input type="number" id="anioDesde" placeholder="Año desde">
+        <input type="number" id="anioHasta" placeholder="Año hasta">
+        <input type="number" id="kmDesde" placeholder="Km desde">
+        <input type="number" id="kmHasta" placeholder="Km hasta">
+        <button id="btnFiltrar">Filtrar</button>
+        <button id="btnEliminarFiltros">Eliminar filtros</button>
+    </section>
+
+    <!-- Ordenación -->
+    <section id="ordenacion">
+        <button id="ordenPrecioAsc">Precio ↑</button>
+        <button id="ordenPrecioDesc">Precio ↓</button>
+        <button id="ordenRelevancia">Relevancia</button>
+    </section>
+
+    <!-- Listado de coches -->
+    <section id="listadoCoches">
+        <!-- Aquí se insertarán dinámicamente las tarjetas de coches -->
+    </section>
+</body>
+
+</html>
